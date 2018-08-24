@@ -173,7 +173,7 @@ Once finish, we must build the image again and at the same time run docker compo
 $ docker-compose up --build // or docker-compose build && docker-compose up
 ```
 
-This command will read the `docker-compose.yml`'s file and executed the instruction line by line. From this point, now you're able to browser our laravel-app using `http://localhost:9000`. When the browser detect port 9000, the port forwarding will occur which forward the port 9000 to port 80 of docker container.
+This command will read the `docker-compose.yml`'s file and executed the instruction line by line. From this point, now you're able to browse our laravel-app using `http://localhost:9000`. When the browser detect port 9000, the port forwarding will occur which forward the port 9000 to port 80 of docker container.
 
 
 ### Execute laravel command inside docker container instance
