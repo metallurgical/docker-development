@@ -136,7 +136,7 @@ Open web browser and hit `http://localhost:8080`, and you should see our laravel
  
 ### Build and run the image using docker compose(docker-compose.yml)
  
-As for now, when we make some changes to our working directory, no changes will reflect to our laravel app. As for development environment, this is important and vital. We can make the changes into our working and re-build the image which makes repeatative works. To avoid this use case, let create `docker-compose.yml` file to instruct our image to always listen the changes we made on working directory and straight away reflect to laravel app without re-build the image. Paste following contents: 
+As for now, when we make some changes to our working directory, no changes will reflect to our laravel app. As for development environment, this is important and vital. We can make the changes into our working and re-build the image which makes repetitive works. To avoid this use case, let create `docker-compose.yml` file to instruct our image to always listen the changes we made on working directory and straight away reflect to laravel app without re-build the image. Paste following contents: 
 
 ```
 version: '3'                                    // Recommended version for YAML
