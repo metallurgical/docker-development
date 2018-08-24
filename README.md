@@ -1,7 +1,7 @@
 # docker-development
 Set of instructions to use docker as local environment without cluttering your local development with diversity of library versioning etc.
 
-For brevity, this instruction will use Laravel as PHP Framework, MYSQL and APACHE which connecting to each others. 
+For the sake of brevity, this instruction will use Laravel as PHP Framework, MYSQL and APACHE which connecting to each others. 
 
 ### Requirements
 1) Docker, yeah docker only
@@ -39,4 +39,34 @@ The only files that important to pay attention(*)
 
 From this point of view, i separated out `docker` files from main project's root and putting it into their own folder `.docker` except for `docker-compose.yml`
 
-### Installations
+### Create Laravel project
+
+Before we can start development, we need to create `laravel` project inside our local environment before we copy the data into docker container. For this example, i'll create under `~/projects/dockers/<project-name>` folder:
+
+```
+composer create-project --prefer-dist laravel/laravel laravel-app
+```
+
+Make sure you have `composer` install in your local machine.
+
+
+### Create Dockerfile
+
+This file having sets of instructions to build our main image that extending from existing docker hub's image. For this example i'll use the PHP 7.2-apache image from [PHP official](https://hub.docker.com/_/php/) docker hub. Put following contents: 
+
+```
+FROM PHP:7.2-apache
+MAINTAINER Norlihazmey Ghazali
+
+COPY . /var/www/html
+COPY .docker/vhost.conf /etc/apache2/sites-available/00-default.conf
+
+RUN docker-php-ext-install mbstring pdo pdo_mysql \
+    && chown -R www-data:www-data /var/www/html \
+    && a2enmod rewrite
+    
+```
+
+
+
+
