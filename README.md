@@ -71,7 +71,7 @@ RUN docker-php-ext-install mbstring pdo pdo_mysql \
 
 #### Explanation
 
-- **FROM**: From which image our image is extended from
+- **FROM**: From which image our image is extending from
 - **MAINTAINER**: Our image's maintainer
 - **COPY**: Copy current directory(all our laravel's file) into `/var/www/html` folder on where our image container reside
 - **COPY**: Copy apache virtual host file to handle our laravel project's request into `/etc/apache2/sites-available/00-default.conf` apache default vhost in our docker container
@@ -117,7 +117,7 @@ docker build --file .docker/Dockerfile -t laravel-app .
 - **-t**: Renaming our docker image 
 - **.**: Build will run on current folder where `docker` command is executed
 
-Once finish build the image, we can run it to test it our from browser by using following command:
+Once finish build the image, we can run it to test it out from browser by using following command:
 
 ```
 docker run <--rm> -p 8080:80 laravel-app
