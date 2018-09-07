@@ -237,6 +237,12 @@ and kill the services by sending the signal to process ID
 ```
 kill -9 PID
 ```
+
+Or sometimes it might be used by `httpd` services, then kill him(lel):
+
+```
+sudo brew services stop httpd
+```
             
  
  
