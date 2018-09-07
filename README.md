@@ -215,6 +215,28 @@ PORT: 12345                 // This port we specify inside docker-compose.yml fi
 USER: root                  // This port we specify inside docker-compose.yml file
 PASSWORD: secret            // This port we specify inside docker-compose.yml file
 ```
+
+### Debug
+
+Sometimes you might encoutered with error `Bind for 0.0.0.0:8080 failed: port is already allocated`. This happened usually because of port `8080` already being used by other services. Try to check for running services of internal programs or by container itself:
+
+Docker Container
+
+```
+docker rm -fv $(docker ps -aq)
+```
+
+or Internal Program
+
+```
+sudo lsof -i -P -n | grep 8080
+```
+
+and kill the services by sending the signal to process ID
+
+```
+kill -9 PID
+```
             
  
  
